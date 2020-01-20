@@ -51,7 +51,7 @@ class Status(models.Model):
 class Project(models.Model):
     name = models.CharField(max_length=55, )
 
-    created_at = models.DateTimeField
+    created_at = models.DateTimeField(auto_now=True)
 
     company = models.ManyToManyField(Company, through='CompanyProject', related_name='projects')
 
