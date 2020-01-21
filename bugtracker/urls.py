@@ -16,11 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from app.views import IndexView
+from app.views import IndexView, TicketDetailView, TicketListView, UserListView, UserDetailView, CompanyListView, \
+    CompanyDetailView, ProjectListView, ProjectDetailView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name='index'),
+    path('tickets/<int:pk>', TicketDetailView.as_view(), name='ticket_detail'),
+    path('tickets', TicketListView.as_view(), name='ticket_list'),
+    path('users', UserListView.as_view(), name='user_list'),
+    path('users/<int:pk>', UserDetailView.as_view, name='user_detail'),
+    path('companies', CompanyListView.as_view(), name='company_list'),
+    path('companies/<int:pk>', CompanyDetailView.as_view(), name='company_detail'),
+    path('projects', ProjectListView.as_view(), name='project_list'),
+    path('projects/<int:pk>', ProjectDetailView.as_view(), name='project_detail')
 ]
 
 

@@ -1,0 +1,25 @@
+{%  extends 'base.html' %}
+
+{% block content %}
+<p>Hello</p>
+    {% for foo in ticket %}
+    
+    {% endfor %}
+    
+    <div>
+        {% for ticket in tickets %}
+            <br>
+            {{ ticket.label }}
+            <br>
+            {{ ticket.created_at }}
+            {{ ticket.project }}
+            {{ ticket.level }}
+            {{ ticket.user }}
+            {{ ticket.updated_at }}
+            {{ ticket.status }}
+            <hr>
+        {% endfor %}
+
+    </div>
+
+{% endblock %}
