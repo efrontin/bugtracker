@@ -13,7 +13,7 @@ class User(models.Model):
     companies = models.ForeignKey('Company', on_delete=models.CASCADE, null=True)
 
     def __str__(self):
-        return f'{self.name}'
+        return f' Utilisateur : {self.name}'
 
 
 class Company(models.Model):
@@ -26,7 +26,7 @@ class Company(models.Model):
 
     def __str__(self):
 
-        return f'{self.name}'
+        return f' Nom de l\'entreprise : {self.name}'
 
 
 class Level(models.Model):
@@ -51,12 +51,12 @@ class Status(models.Model):
 class Project(models.Model):
     name = models.CharField(max_length=55, )
 
-    created_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     company = models.ManyToManyField(Company, through='CompanyProject', related_name='projects')
 
     def __str__(self):
-        return f'{self.name}'
+        return f'Nom du projet : {self.name}'
 
 
 class Role(models.Model):
@@ -67,7 +67,7 @@ class Role(models.Model):
         verbose_name_plural = 'Roles'
 
     def __str__(self):
-        return f'{self.name}'
+        return f' Rôle : {self.name}'
 
 
 class Ticket(models.Model):
@@ -76,9 +76,9 @@ class Ticket(models.Model):
 
     user = models.ManyToManyField('User')
 
-    created_at = models.DateTimeField
+    created_at = models.DateTimeField(auto_now_add=True)
 
-    updated_at = models.DateTimeField
+    updated_at = models.DateTimeField(auto_now=True)
 
     status = models.ForeignKey(Status,
                                on_delete=models.CASCADE)
@@ -90,7 +90,7 @@ class Ticket(models.Model):
                                 on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.label}'
+        return f' ID {self.id} -  {self.project} - status : {self.status}'
 
 
 class CompanyProject(models.Model):

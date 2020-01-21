@@ -4,44 +4,28 @@
 
 <div class="content">
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="card">
-              <div class="card-header border-0">
-                <div class="d-flex justify-content-between">
-                  <h3 class="card-title">Projet :</h3>
-                   <div>
-                        {% for project in projects %}
-                        <br>
-                            {{ project.name }}
-                            <br>
-                        {{ project.created_at }}
-                            <hr>
-                {% endfor %}
-
-            </div>
+      <div class="row">
+        {% for project in projects %}
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-12 col-md-12 mb-12">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{{ project.name }}</div>
+                                <div class="h5 mb-0 font-weight-light text-gray-400" role="button"><a href="{% url 'ticket_list_by_project' project.pk %}">Voir la liste des tickets en cours</a></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="card-body">
-                <!-- /.d-flex -->
-
-                <div class="d-flex flex-row justify-content-end">
-                  <span class="mr-2">
-                    <i class="fas fa-square text-primary"></i> This Week
-                  </span>
-
-                  <span>
-                    <i class="fas fa-square text-gray"></i> Last Week
-                  </span>
-                </div>
-              </div>
             </div>
-            <!-- /.card -->
-
-            <!-- /.card -->
-          </div>
+            <hr>
+        {% endfor %}
+        <div>
 
         </div>
+    </div>
+
         <!-- /.row -->
       </div>
       <!-- /.container-fluid -->
