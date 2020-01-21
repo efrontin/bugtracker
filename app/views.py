@@ -75,6 +75,15 @@ class ProjectDetailView(generic.DetailView):
     template_name = 'project_detail.html'
 
 
+class Logout(generic.View):
+    template_name = 'logout.html'
+
+    def get(self, request):
+        logout(request)
+        messages.info(request, "Déconnexion réussie")
+        return redirect('login')
+
+
 class Login(generic.FormView):
     template_name = 'login.html'
     form_class = ConnectionForm
