@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
 
-
 # Create your views here.
 from app.models import Project, Ticket, User, Company
 
@@ -9,7 +8,6 @@ from app.models import Project, Ticket, User, Company
 class IndexView(generic.TemplateView):
     def get_context_data(self, **kwargs):
         result = super().get_context_data(**kwargs)
-        result['nom'] = 'Evrard'
         result['projects'] = Project.objects.all().order_by('name')
         result['tickets'] = Ticket.objects.all()
 
@@ -19,6 +17,8 @@ class IndexView(generic.TemplateView):
 
 
 class TicketListView(generic.ListView):
+    model = Ticket
+
     def get_context_data(self, **kwargs):
         result = super().get_context_data(**kwargs)
         result['tickets'] = Ticket.objects.all()
@@ -55,9 +55,24 @@ class CompanyDetailView(generic.DetailView):
 
 class ProjectListView(generic.ListView):
     model = Project
+
+    def get_context_data(self, **kwargs):
+        result = super().get_context_data(**kwargs)
+        result['projects'] = Project.objects.all().order_by('name')
+
+        return result
+
     template_name = 'project_list.html'
 
 
 class ProjectDetailView(generic.DetailView):
     model = Project
     template_name = 'project_detail.html'
+
+
+class TicketSearchByProjectListView(generic.ListView):
+    template_name = 'ticket_list.html'
+
+    def get_queryset(self, queryset=None):
+        return Ticket.objects.get(pk=self.kwargs['pk'])
+
