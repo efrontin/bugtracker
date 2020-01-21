@@ -94,3 +94,10 @@ class Login(generic.FormView):
         else:
             messages.error(self.request, "Utilisateur ou mot de passe incorrect")
             return super().form_invalid(form)
+
+
+class TicketSearchByProjectListView(generic.ListView):
+    template_name = 'ticket_list.html'
+
+    def get_queryset(self, queryset=None):
+        return Ticket.objects.get(pk=self.kwargs['pk'])
