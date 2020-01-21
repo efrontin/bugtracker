@@ -17,11 +17,12 @@ from django.contrib import admin
 from django.urls import path
 
 from app.views import IndexView, TicketDetailView, TicketListView, UserListView, UserDetailView, CompanyListView, \
-    CompanyDetailView, ProjectListView, ProjectDetailView
+    CompanyDetailView, ProjectListView, ProjectDetailView, Login
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name='index'),
+    path('login/', Login.as_view(), name='login'),
     path('tickets/<int:pk>', TicketDetailView.as_view(), name='ticket_detail'),
     path('tickets', TicketListView.as_view(), name='ticket_list'),
     path('users', UserListView.as_view(), name='user_list'),

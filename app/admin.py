@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from app.models import User, Project, Status, Level, Company, Ticket, Role, CompanyProject
+from app.models import Employee, Project, Status, Level, Company, Ticket, CompanyProject
 
 
 class CompanyProjectInlineAdmin(admin.StackedInline):
@@ -14,11 +14,10 @@ class ProjectAdmin(admin.ModelAdmin):
     inlines = (CompanyProjectInlineAdmin, )
 
 
-admin.site.register(User)
+admin.site.register(Employee)
 admin.site.register(Ticket)
 admin.site.register(Company)
 admin.site.register(Level)
-admin.site.register(Role)
 admin.site.register(Status)
 admin.site.register(Project, ProjectAdmin)
 

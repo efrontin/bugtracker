@@ -1,19 +1,17 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
-class User(models.Model):
-    name = models.CharField(max_length=50,
-                            blank=False,
-                            null=False)
-    role = models.ForeignKey('Role', on_delete=models.CASCADE)
-    password = models.CharField(max_length=55,
-                                blank=True,
-                                null=True)
+class Employee(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     companies = models.ForeignKey('Company', on_delete=models.CASCADE, null=True)
 
+    def description(self):
+        return ' / '.join([self.user.username, str(self.companies)]).strip()
+
     def __str__(self):
-        return f'{self.name}'
+        return f'{self.user}'
 
 
 class Company(models.Model):
@@ -74,7 +72,7 @@ class Ticket(models.Model):
     label = models.TextField(max_length=255,
                              default='No description')
 
-    user = models.ManyToManyField('User')
+    user = models.ManyToManyField('Employee')
 
     created_at = models.DateTimeField
 

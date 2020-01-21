@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f13da72-5a2c-4e40-b673-f4925e1430ba" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/migrations/0014_auto_20200121_0954.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/bugtracker.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bugtracker.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bugtracker/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/bugtracker/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bugtracker/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/bugtracker/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +25,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -33,6 +39,11 @@
   </component>
   <component name="ProjectId" id="1WeZ2Tv1WNptNga429MvAvQnLmP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -43,24 +54,13 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/static" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="bugtracker" type="Python.DjangoServer" factoryName="Django server">
@@ -87,6 +87,18 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -139,5 +151,62 @@
     <MESSAGE value="[BDD] Ajout des migrations" />
     <MESSAGE value="[VIEW] Add first view + gitignore" />
     <option name="LAST_COMMIT_MESSAGE" value="[VIEW] Add first view + gitignore" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="664" y="153" width="652" height="807" key="#bugtracker" timestamp="1579600092077">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state x="664" y="153" width="652" height="807" key="#bugtracker/70.27.1850.1053@70.27.1850.1053" timestamp="1579600092077" />
+    <state width="879" height="340" key="GridCell.Tab.0.bottom" timestamp="1579613301008">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="879" height="340" key="GridCell.Tab.0.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1579613301008" />
+    <state width="879" height="340" key="GridCell.Tab.0.center" timestamp="1579613301008">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="879" height="340" key="GridCell.Tab.0.center/70.27.1850.1053@70.27.1850.1053" timestamp="1579613301008" />
+    <state width="879" height="340" key="GridCell.Tab.0.left" timestamp="1579613301007">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="879" height="340" key="GridCell.Tab.0.left/70.27.1850.1053@70.27.1850.1053" timestamp="1579613301007" />
+    <state width="879" height="340" key="GridCell.Tab.0.right" timestamp="1579613301008">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="879" height="340" key="GridCell.Tab.0.right/70.27.1850.1053@70.27.1850.1053" timestamp="1579613301008" />
+    <state width="879" height="340" key="GridCell.Tab.1.bottom" timestamp="1579613301010">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="879" height="340" key="GridCell.Tab.1.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1579613301010" />
+    <state width="879" height="340" key="GridCell.Tab.1.center" timestamp="1579613301009">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="879" height="340" key="GridCell.Tab.1.center/70.27.1850.1053@70.27.1850.1053" timestamp="1579613301009" />
+    <state width="879" height="340" key="GridCell.Tab.1.left" timestamp="1579613301009">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="879" height="340" key="GridCell.Tab.1.left/70.27.1850.1053@70.27.1850.1053" timestamp="1579613301009" />
+    <state width="879" height="340" key="GridCell.Tab.1.right" timestamp="1579613301009">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="879" height="340" key="GridCell.Tab.1.right/70.27.1850.1053@70.27.1850.1053" timestamp="1579613301009" />
+    <state x="484" y="188" width="1022" height="737" key="SettingsEditor" timestamp="1579600178659">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state x="484" y="188" width="1022" height="737" key="SettingsEditor/70.27.1850.1053@70.27.1850.1053" timestamp="1579600178659" />
+    <state x="1120" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1579603953060">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state x="1120" y="259" width="672" height="678" key="search.everywhere.popup/70.27.1850.1053@70.27.1850.1053" timestamp="1579603953060" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app/views.py</url>
+          <line>77</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -11,14 +11,15 @@
                 <div class="d-flex justify-content-between">
                   <h3 class="card-title">Projet :</h3>
                    <div>
+                   {{ employee }}
                         {% for project in projects %}
                         <br>
                             {{ project.name }}
+
                             <br>
                         {{ project.created_at }}
                             <hr>
                 {% endfor %}
-
             </div>
                 </div>
               </div>
