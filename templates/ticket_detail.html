@@ -1,25 +1,40 @@
 {%  extends 'base.html' %}
 
 {% block content %}
-<p>Hello</p>
-    {% for foo in ticket %}
-    
-    {% endfor %}
-    
-    <div>
-        {% for ticket in tickets %}
-            <br>
-            {{ ticket.label }}
-            <br>
-            {{ ticket.created_at }}
-            {{ ticket.project }}
-            {{ ticket.level }}
-            {{ ticket.user }}
-            {{ ticket.updated_at }}
-            {{ ticket.status }}
-            <hr>
-        {% endfor %}
 
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-12 col-md-12 mb-12">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <h5><strong>Projet : {{ ticket.project }}</strong></h5>
+                                    <p>Status du ticket : <span class="right badge badge-success">{{ ticket.status }}</span></p>
+                                    <p>Créée le {{ ticket.created_at }} - Dernière modification : {{ ticket.updated_at }}</p>
+                                    <br>
+                                    <h2>Description de l'issue : </h2>
+                                    <p>{{ ticket.label }}</p>
+                                    <hr>
+                                    <p>Niveau de l'issue : {{ ticket.level }}</p>
+                                    <hr>
+                                    <p>Utilisateurs rattachés à l'issue {{ ticket.user }}</p>
+                                        <a href="#">
+                                            <button class="btn btn-success">Editer</button>
+                                        </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div>
+
+                </div>
+            </div>
+        </div>
     </div>
+
 
 {% endblock %}

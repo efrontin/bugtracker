@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 from app.views import IndexView, TicketDetailView, TicketListView, UserListView, UserDetailView, CompanyListView, \
-    CompanyDetailView, ProjectListView, ProjectDetailView, Login
+    CompanyDetailView, ProjectListView, ProjectDetailView, Login, TicketSearchByProjectListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,6 +25,7 @@ urlpatterns = [
     path('login/', Login.as_view(), name='login'),
     path('tickets/<int:pk>', TicketDetailView.as_view(), name='ticket_detail'),
     path('tickets', TicketListView.as_view(), name='ticket_list'),
+    path('projects/<int:pk>/ticket-list', TicketSearchByProjectListView.as_view(), name='ticket_list_by_project'),
     path('users', UserListView.as_view(), name='user_list'),
     path('users/<int:pk>', UserDetailView.as_view, name='user_detail'),
     path('companies', CompanyListView.as_view(), name='company_list'),
@@ -32,8 +33,3 @@ urlpatterns = [
     path('projects', ProjectListView.as_view(), name='project_list'),
     path('projects/<int:pk>', ProjectDetailView.as_view(), name='project_detail')
 ]
-
-
-
-
-
