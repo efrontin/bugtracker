@@ -10,7 +10,7 @@ from app.forms.authForm import ConnectionForm
 from app.models import Project, Ticket, Employee, Company
 
 
-class IndexView(generic.TemplateView):
+class IndexView(LoginRequiredMixin, generic.TemplateView):
     def get_context_data(self, **kwargs):
         result = super().get_context_data(**kwargs)
         result['projects'] = Project.objects.all().order_by('name')
@@ -33,32 +33,32 @@ class TicketListView(LoginRequiredMixin, generic.ListView):
     template_name = 'ticket_list.html'
 
 
-class TicketDetailView(generic.DetailView):
+class TicketDetailView(LoginRequiredMixin, generic.DetailView):
     model = Ticket
     template_name = 'ticket_detail.html'
 
 
-class UserListView(generic.ListView):
+class UserListView(LoginRequiredMixin, generic.ListView):
     model = Employee
     template_name = 'user_list.html'
 
 
-class UserDetailView(generic.DetailView):
+class UserDetailView(LoginRequiredMixin, generic.DetailView):
     model = Employee
     template_name = 'user_detail.html'
 
 
-class CompanyListView(generic.ListView):
+class CompanyListView(LoginRequiredMixin, generic.ListView):
     model = Company
     template_name = 'company_list.html'
 
 
-class CompanyDetailView(generic.DetailView):
+class CompanyDetailView(LoginRequiredMixin, generic.DetailView):
     model = Company
     template_name = 'company_detail.html'
 
 
-class ProjectListView(generic.ListView):
+class ProjectListView(LoginRequiredMixin, generic.ListView):
     model = Project
 
     def get_context_data(self, **kwargs):
@@ -70,9 +70,14 @@ class ProjectListView(generic.ListView):
     template_name = 'project_list.html'
 
 
-class ProjectDetailView(generic.DetailView):
+class ProjectDetailView(LoginRequiredMixin, generic.DetailView):
     model = Project
     template_name = 'project_detail.html'
+
+
+def logout_user(request):
+    logout(request)
+    return redirect('login')
 
 
 class Login(generic.FormView):
@@ -96,7 +101,7 @@ class Login(generic.FormView):
             return super().form_invalid(form)
 
 
-class TicketSearchByProjectListView(generic.ListView):
+class TicketSearchByProjectListView(LoginRequiredMixin, generic.ListView):
     template_name = 'ticket_list.html'
 
     def get_queryset(self, queryset=None):
