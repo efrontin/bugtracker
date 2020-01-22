@@ -57,17 +57,6 @@ class Project(models.Model):
         return f'{self.name}'
 
 
-class Role(models.Model):
-    name = models.CharField(max_length=55,
-                            default='No role')
-
-    class Meta:
-        verbose_name_plural = 'Roles'
-
-    def __str__(self):
-        return f' Rôle : {self.name}'
-
-
 class Ticket(models.Model):
     label = models.TextField(max_length=255,
                              default='No description')
