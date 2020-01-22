@@ -1,20 +1,11 @@
 {% load static %}<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-
-  <title> Tableau de bord | Romain </title>
-
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css'%}">
-  <!-- IonIcons -->
-  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
-  <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ticketing</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -26,23 +17,29 @@
     </div>
     <!-- /.login-logo -->
     <div class="card">
-        <div class="card-body login-card-body">
+        <div class="card-body login-card-body align-content-center">
             <p class="login-box-msg">Veuillez vous connecter</p>
-            <p>
-                {{ user.employee.description }}
+            <div class="error-forms">
                 {% for message in messages %}
                     {{ message }}
                 {% endfor %}
 
-            </p>
-            <form action='' method="post">
+            </div>
+            <form class="d-flex flex-column justify-content-center align-items-center" action='' method="post">
+
                 {% for error in form.errors %}
                     {{ error }}
                 {% endfor %}
 
+
                 {% csrf_token %}
                 {% for field in form %}
-                    {{ field }}
+                    <div class="d-flex justify-content-center input-group mb-3">
+                        <div class="input-group-append">
+                            {{ field }}
+
+                        </div>
+                    </div>
                     {% if field.errors %}
                         {% for error in field.errors %}
                             {{ error }}
@@ -59,23 +56,12 @@
         </div>
         </form>
 
-        <div class="social-auth-links text-center mb-3">
-            <p>- OR -</p>
-            <a href="#" class="btn btn-block btn-primary">
-                <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-            </a>
-            <a href="#" class="btn btn-block btn-danger">
-                <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-            </a>
-        </div>
-        <!-- /.social-auth-links -->
-
-        <p class="mb-1">
-            <a href="forgot-password.html">I forgot my password</a>
-        </p>
-        <p class="mb-0">
-            <a href="register.html" class="text-center">Register a new membership</a>
-        </p>
+{#        <p class="mb-1">#}
+{#            <a href="forgot-password.html">I forgot my password</a>#}
+{#        </p>#}
+{#        <p class="mb-0">#}
+{#            <a href="register.html" class="text-center">Register a new membership</a>#}
+{#        </p>#}
     </div>
     <!-- /.login-card-body -->
 </div>

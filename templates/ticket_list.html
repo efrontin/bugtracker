@@ -1,10 +1,23 @@
 {%  extends 'base.html' %}
 
 {%  block content %}
+    <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Liste des tickets</h1>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
 <div class="content">
       <div class="container-fluid">
       <div class="row">
-        {% for project in projects %}
+        {% for object in object_list %}
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-12 col-md-12 mb-12">
                 <div class="card border-left-primary shadow h-100 py-2">
@@ -12,7 +25,12 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{{ ticket.project }}</div>
-                                <div class="h5 mb-0 font-weight-light text-gray-800" role="button"><a href="{% url 'ticket_detail' ticket.pk %}">Détails</a></div>
+                                <div class="h5 mb-0 font-weight-light text-gray-800" role="button"><a href="{% url 'ticket_detail' object.pk %}">{{ object.project }} : Issue ID#{{ object.id }}</a></div>
+                                <p><span class="right badge badge-primary">{{ object.status }}</span></p>
+                                    <p>{{ object.label }}</p>
+                                <p><span class="right badge badge-warning">{{ object.level }}</span>
+                                </p>
+                                <p class="font-italic text-gray">{{ object.created_at }}</p>
                             </div>
                         </div>
                     </div>
@@ -26,4 +44,5 @@
     </div>
       </div>
 </div>
+    </div>
 {% endblock %}

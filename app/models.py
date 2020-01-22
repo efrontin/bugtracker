@@ -54,7 +54,7 @@ class Project(models.Model):
     company = models.ManyToManyField(Company, through='CompanyProject', related_name='projects')
 
     def __str__(self):
-        return f'Nom du projet : {self.name}'
+        return f'{self.name}'
 
 
 class Ticket(models.Model):
