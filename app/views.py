@@ -7,6 +7,7 @@ from django.views import generic
 
 # Create your views here.
 from app.forms.authForm import ConnectionForm
+from app.forms.myAccount import MyAccount
 from app.models import Project, Ticket, Employee, Company
 
 
@@ -107,3 +108,31 @@ class TicketSearchByProjectListView(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         return Ticket.objects.filter(project_id=self.kwargs['pk'])
+
+
+class MyAccountView(generic.FormView):
+    template_name = 'my_account.html'
+    form_class = MyAccount
+
+    def get_success_url(self):
+        return reverse('index')
+
+    # def get_initial(self):
+    #     user = self.request.user
+    #     initial = super(self).get_initial()
+    #     # update initial field defaults with custom set default values:
+    #     initial.update({'username': user.username, })
+    #     return initial
+
+    def form_valid(self, form):
+        user = authenticate(
+            self.request,
+            username=form.cleaned_data['username'],
+            password=form.cleaned_data['password']
+        )
+        if user.employee is not None:
+            login(self.request, user)
+            return super().form_valid(form)
+        else:
+            messages.error(self.request, "Utilisateur ou mot de passe incorrect")
+            return super().form_invalid(form)
