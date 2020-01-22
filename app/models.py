@@ -11,7 +11,7 @@ class Employee(models.Model):
         return ' / '.join([self.user.username, str(self.companies)]).strip()
 
     def __str__(self):
-        return f'{self.name}'
+        return f'{self.user}'
 
 
 class Company(models.Model):
@@ -54,7 +54,7 @@ class Project(models.Model):
     company = models.ManyToManyField(Company, through='CompanyProject', related_name='projects')
 
     def __str__(self):
-        return f'Nom du projet : {self.name}'
+        return f'{self.name}'
 
 
 class Role(models.Model):
