@@ -11,7 +11,7 @@ class Employee(models.Model):
         return ' / '.join([self.user.username, str(self.companies)]).strip()
 
     def __str__(self):
-        return f'{self.name}'
+        return f'{self.user}'
 
 
 class Company(models.Model):
@@ -55,17 +55,6 @@ class Project(models.Model):
 
     def __str__(self):
         return f'Nom du projet : {self.name}'
-
-
-class Role(models.Model):
-    name = models.CharField(max_length=55,
-                            default='No role')
-
-    class Meta:
-        verbose_name_plural = 'Roles'
-
-    def __str__(self):
-        return f' Rôle : {self.name}'
 
 
 class Ticket(models.Model):
