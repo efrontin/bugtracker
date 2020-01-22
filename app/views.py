@@ -97,7 +97,9 @@ class Login(generic.FormView):
 
 
 class TicketSearchByProjectListView(generic.ListView):
+    model = Ticket
     template_name = 'ticket_list.html'
 
-    def get_queryset(self, queryset=None):
-        return Ticket.objects.get(pk=self.kwargs['pk'])
+    def get_queryset(self):
+        print(Ticket.objects.filter(project_id=self.kwargs['pk']))
+        return Ticket.objects.filter(project_id=self.kwargs['pk'])
