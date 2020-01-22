@@ -1,20 +1,20 @@
 {% load static %}<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title> Tableau de bord | Romain </title>
+    <title> Tableau de bord | Romain </title>
 
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css'%}">
-  <!-- IonIcons -->
-  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
-  <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
+    <!-- IonIcons -->
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -35,13 +35,13 @@
 
             </div>
             <form class="d-flex flex-column justify-content-center align-items-center" action='' method="post">
+                {% csrf_token %}
 
                 {% for error in form.errors %}
                     {{ error }}
                 {% endfor %}
 
 
-                {% csrf_token %}
                 {% for field in form %}
                     <div class="d-flex justify-content-center input-group mb-3">
                         <div class="input-group-append">
@@ -65,12 +65,12 @@
         </div>
         </form>
 
-{#        <p class="mb-1">#}
-{#            <a href="forgot-password.html">I forgot my password</a>#}
-{#        </p>#}
-{#        <p class="mb-0">#}
-{#            <a href="register.html" class="text-center">Register a new membership</a>#}
-{#        </p>#}
+        {#        <p class="mb-1">#}
+        {#            <a href="forgot-password.html">I forgot my password</a>#}
+        {#        </p>#}
+        {#        <p class="mb-0">#}
+        {#            <a href="register.html" class="text-center">Register a new membership</a>#}
+        {#        </p>#}
     </div>
     <!-- /.login-card-body -->
 </div>

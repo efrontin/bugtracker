@@ -5,10 +5,11 @@ from django.db import models
 class Employee(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    companies = models.ForeignKey('Company', on_delete=models.CASCADE, null=True)
+    company = models.ForeignKey('Company', on_delete=models.CASCADE, null=True,
+                                  related_name='employees')
 
     def description(self):
-        return ' / '.join([self.user.username, str(self.companies)]).strip()
+        return ' / '.join([self.user.username, str(self.company)]).strip()
 
     def __str__(self):
         return f'{self.user}'

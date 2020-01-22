@@ -94,7 +94,7 @@ class Login(generic.FormView):
             username=form.cleaned_data['username'],
             password=form.cleaned_data['password']
         )
-        if user.employee is not None:
+        if user is not None:
             login(self.request, user)
             return super().form_valid(form)
         else:
@@ -115,24 +115,39 @@ class MyAccountView(generic.FormView):
     form_class = MyAccount
 
     def get_success_url(self):
-        return reverse('index')
+        return reverse('my_account')
 
-    # def get_initial(self):
-    #     user = self.request.user
-    #     initial = super(self).get_initial()
-    #     # update initial field defaults with custom set default values:
-    #     initial.update({'username': user.username, })
-    #     return initial
+    def get_initial(self):
+        user = self.request.user
+
+        try:
+            company = Company.objects.get(employees__user__in=[user.pk])
+        except Company.DoesNotExist:
+            company = None
+
+        initial = super().get_initial()
+        initial.update({
+            'username': user.username,
+            'first_name': user.first_name,
+            'last_name': user.last_name,
+            'companies': company
+        })
+        return initial
 
     def form_valid(self, form):
-        user = authenticate(
-            self.request,
-            username=form.cleaned_data['username'],
-            password=form.cleaned_data['password']
-        )
-        if user.employee is not None:
-            login(self.request, user)
-            return super().form_valid(form)
-        else:
-            messages.error(self.request, "Utilisateur ou mot de passe incorrect")
-            return super().form_invalid(form)
+        user = self.request.user
+        user.username = form.cleaned_data['username']
+        user.first_name = form.cleaned_data['first_name']
+        user.last_name = form.cleaned_data['last_name']
+        user.employee.company = form.cleaned_data['companies']
+        user.save()
+        user.employee.save()
+        messages.success(self.request, "Mise a jour effectué")
+        return super().form_valid(form)
+
+        # if user.employee is not None:
+        #     login(self.request, user)
+        #     return super().form_valid(form)
+        # else:
+        #     messages.error(self.request, "Utilisateur ou mot de passe incorrect")
+        #     return super().form_invalid(form)
