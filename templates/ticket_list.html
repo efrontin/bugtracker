@@ -24,8 +24,8 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{{ ticket.project }}</div>
-                                <div class="h5 mb-0 font-weight-light text-gray-800" role="button"><a href="{% url 'ticket_detail' object.pk %}">{{ object.project }} : Issue ID#{{ object.id }}</a></div>
+                                <div class="text-xs font-weight-light text-primary text-uppercase mb-1">{{ ticket.project }}</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800" role="button"><a href="{% url 'ticket_detail' object.pk %}">{{ object.project }} : Issue ID#{{ object.id }}</a></div>
                                 <p><span class="right badge badge-primary">{{ object.status }}</span></p>
                                     <p>{{ object.label }}</p>
                                 <p><span class="right badge badge-warning">{{ object.level }}</span>
@@ -44,5 +44,4 @@
     </div>
       </div>
 </div>
-    </div>
 {% endblock %}

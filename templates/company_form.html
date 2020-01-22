@@ -1,48 +1,46 @@
 {%  extends 'base.html' %}
 
-{% block content %}
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Tableau de bord</h1>
+            <h1 class="m-0 text-dark">Créer un projet</h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
 
-<div class="content">
-      <div class="container-fluid">
+{%  block content %}
+
       <div class="row">
-        {% for project in projects %}
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-12 col-md-12 mb-12">
                 <div class="card border-left-primary shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{{ project.name }}</div>
-                                <div class="h5 mb-0 font-weight-light text-gray-400" role="button"><a href="{% url 'ticket_list_by_project' project.pk %}">Voir la liste des tickets en cours</a></div>
+                                <div class="text-xl font-weight-bold text-primary text-uppercase mb-1">Création d'entreprise</div>
+                                <form action="" class="d-flex flex-column justify-content-center align-items-center" method="post">
+
+                                    <div class="col-4">
+                                        <button type="submit" value="Submit" class="btn btn-primary btn-block">Créer une entreprise</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-cookie-bite x9"></i>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <hr>
-        {% endfor %}
-    </div>
-<div style="padding-top: 20px">
-            <a href={% url 'project_create' %}>
-                <button class="btn btn-primary">Créer un projet</button>
-            </a>
+        <div>
 
         </div>
-        <!-- /.row -->
-      </div>
-      <!-- /.container-fluid -->
     </div>
 
-{%  endblock %}
+{% endblock %}
