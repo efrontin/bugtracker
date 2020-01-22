@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f13da72-5a2c-4e40-b673-f4925e1430ba" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/migrations/0015_merge_20200121_1547.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/bugtracker.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bugtracker.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bugtracker/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/bugtracker/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/register.html" beforeDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,6 +59,18 @@
       <recent name="$PROJECT_DIR$/static" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager">
     <configuration name="bugtracker" type="Python.DjangoServer" factoryName="Django server">
       <module name="bugtracker" />
@@ -84,18 +97,6 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -109,6 +110,7 @@
       <workItem from="1579511814180" duration="834000" />
       <workItem from="1579512820306" duration="1791000" />
       <workItem from="1579515532188" duration="11928000" />
+      <workItem from="1579677806325" duration="1288000" />
     </task>
     <task id="LOCAL-00001" summary="[BDD] Ajout des migrations">
       <created>1579525785508</created>
@@ -157,22 +159,22 @@
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state x="170" y="127" width="1650" height="853" key="DiffContextDialog/70.27.1850.1053@70.27.1850.1053" timestamp="1579615867628" />
-    <state width="1804" height="210" key="GridCell.Tab.0.bottom" timestamp="1579619556416">
+    <state width="1804" height="210" key="GridCell.Tab.0.bottom" timestamp="1579617194260">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state width="1804" height="210" key="GridCell.Tab.0.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1579619556416" />
-    <state width="1804" height="210" key="GridCell.Tab.0.center" timestamp="1579619556415">
+    <state width="1804" height="210" key="GridCell.Tab.0.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1579617194260" />
+    <state width="1804" height="210" key="GridCell.Tab.0.center" timestamp="1579617194260">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state width="1804" height="210" key="GridCell.Tab.0.center/70.27.1850.1053@70.27.1850.1053" timestamp="1579619556415" />
-    <state width="1804" height="210" key="GridCell.Tab.0.left" timestamp="1579619556414">
+    <state width="1804" height="210" key="GridCell.Tab.0.center/70.27.1850.1053@70.27.1850.1053" timestamp="1579617194260" />
+    <state width="1804" height="210" key="GridCell.Tab.0.left" timestamp="1579617194259">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state width="1804" height="210" key="GridCell.Tab.0.left/70.27.1850.1053@70.27.1850.1053" timestamp="1579619556414" />
-    <state width="1804" height="210" key="GridCell.Tab.0.right" timestamp="1579619556416">
+    <state width="1804" height="210" key="GridCell.Tab.0.left/70.27.1850.1053@70.27.1850.1053" timestamp="1579617194259" />
+    <state width="1804" height="210" key="GridCell.Tab.0.right" timestamp="1579617194260">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state width="1804" height="210" key="GridCell.Tab.0.right/70.27.1850.1053@70.27.1850.1053" timestamp="1579619556416" />
+    <state width="1804" height="210" key="GridCell.Tab.0.right/70.27.1850.1053@70.27.1850.1053" timestamp="1579617194260" />
     <state width="879" height="340" key="GridCell.Tab.1.bottom" timestamp="1579613301010">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
@@ -205,16 +207,5 @@
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state x="1120" y="259" width="672" height="678" key="search.everywhere.popup/70.27.1850.1053@70.27.1850.1053" timestamp="1579615505670" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/app/views.py</url>
-          <line>75</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
