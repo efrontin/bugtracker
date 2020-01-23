@@ -6,7 +6,7 @@ class Employee(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     company = models.ForeignKey('Company', on_delete=models.CASCADE, null=True,
-                                  related_name='employees')
+                                related_name='employees')
 
     def description(self):
         return ' / '.join([self.user.username, str(self.company)]).strip()
@@ -24,7 +24,6 @@ class Company(models.Model):
         verbose_name_plural = 'Companies'
 
     def __str__(self):
-
         return f'{self.name}'
 
 
@@ -92,4 +91,3 @@ class CompanyProject(models.Model):
         if self.is_client:
             return f'{self.company} a effectué une demande'
         return f'{self.company} répond à une demande '
-
