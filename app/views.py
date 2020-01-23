@@ -97,7 +97,7 @@ class ProjectCreateView(generic.FormView):
 
         project = Project()
         project.save()
-        company = Company.objects.get(name=company_str.name)
+        company = Company.objects.get(pk=company_str)
         CompanyProject.objects.create(
             project=project,
             company=company,
