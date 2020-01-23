@@ -35,8 +35,9 @@ class ProjectForm(forms.Form):
         )
         is_client = forms.BooleanField(
             label='Client',
+            required=False,
             widget=widgets.CheckboxInput(
-                attrs={'class': 'form-check-input'}
+                attrs={'class': 'form-check-input'},
             )
         )
         self.fields = OrderedDict([

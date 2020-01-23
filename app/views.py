@@ -86,7 +86,8 @@ class ProjectCreateView(generic.FormView):
             'companies_choices': [
                 (v.pk, str(v))
                 for v in Company.objects.exclude(
-                    employees__in=[user.employee.pk])]
+                    employees__in=[user.employee.pk])],
+            'is_client': False,
         })
         return initial
 
