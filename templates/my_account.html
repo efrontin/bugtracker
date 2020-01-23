@@ -13,6 +13,7 @@
                             <small class="text-muted">{{ user.username }}</small>
                         </h3>
                         <div class="col-12 mt-5">
+
                             <form method="post" action="">
                                 {% csrf_token %}
 
@@ -24,41 +25,16 @@
                                         </div>
                                     </div>
                                 {% endfor %}
-
-                                {#                                        <input type="text" class="form-control" id="username" value="{{ user.username }}" placeholder="Nom utilisateur">#}
-
-                                {#                                <div class="form-group row">#}
-                                {#                                    <label for="firstname" class="col-sm-5 col-form-label">Prénom</label>#}
-                                {#                                    <div class="col-sm-7">#}
-                                {#                                        <input type="text" class="form-control" id="firstname" value="{{ user.first_name }}"#}
-                                {#                                               placeholder="Prénom">#}
-                                {#                                    </div>#}
-                                {#                                </div>#}
-                                {#                                <div class="form-group row">#}
-                                {#                                    <label for="lastname" class="col-sm-5 col-form-label">Nom</label>#}
-                                {#                                    <div class="col-sm-7">#}
-                                {#                                        <input type="text" class="form-control" id="lastname" value="{{ user.last_name }}"#}
-                                {#                                               placeholder="Nom">#}
-                                {#                                    </div>#}
-                                {#                                </div>#}
-                                {#                                <fieldset class="form-group">#}
-                                {#                                    <div class="row">#}
-                                {#                                        <label for="firstname" class="col-sm-5 col-form-label">Entreprise</label>#}
-                                {#                                        <div class="col-sm-7">#}
-                                {#                                            <select class="form-control">#}
-                                {#                                                {% for company in companies %}#}
-                                {#                                                    <option name={{ company.id }}>#}
-                                {#                                                        {{ company.name }}#}
-                                {#                                                    </option>#}
-                                {#                                                {% endfor %}#}
-                                {#                                            </select>#}
-                                {#                                        </div>#}
-                                {#                                    </div>#}
-                                {#                                </fieldset>#}
                                 <div class="form-group row d-flex justify-content-end mt-5">
                                     <div class="col-sm-7 d-flex justify-content-end">
                                         <button type="submit" class="btn btn-primary">Modifier</button>
                                     </div>
+                                </div>
+                                <div class="error-forms d-flex justify-content-center mt-5">
+                                    {% for message in messages %}
+                                        {{ message }}
+                                    {% endfor %}
+
                                 </div>
                             </form>
                         </div>
