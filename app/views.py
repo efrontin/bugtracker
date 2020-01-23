@@ -8,7 +8,8 @@ from django.views import generic
 # Create your views here.
 from app.forms.authForm import ConnectionForm
 from app.forms.myAccount import MyAccount
-from app.models import Project, Ticket, Employee, Company
+from app.forms.projectForm import ProjectForm
+from app.models import Project, Ticket, Employee, Company, CompanyProject
 
 
 class IndexView(LoginRequiredMixin, generic.TemplateView):
@@ -69,6 +70,29 @@ class ProjectListView(LoginRequiredMixin, generic.ListView):
         return result
 
     template_name = 'project_list.html'
+
+
+class ProjectCreateView(generic.FormView):
+    form_class = ProjectForm
+    template_name = 'project_form.html'
+
+    def get_success_url(self):
+        return reverse('project_list')
+
+    def form_valid(self, form):
+        name = form.cleaned_data['name']
+        company_str = form.cleaned_data['company']
+        is_client = self.request.POST.get('is_client') is not None
+
+        project = Project()
+        project.save()
+        company = Company.objects.get(name=company_str.name)
+        CompanyProject.objects.create(project=project, company=company, is_client=is_client)
+
+        project.name = name
+        project.save()
+
+        return super().form_valid(form)
 
 
 class ProjectDetailView(LoginRequiredMixin, generic.DetailView):

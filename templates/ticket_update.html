@@ -1,0 +1,41 @@
+{%  extends 'base.html' %}
+
+{% block content %}
+
+    <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Editer le ticket n° {{ ticket.id }}</h1>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-12 col-md-12 mb-12">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <h5><strong>Projet : {{ ticket.project }}</strong></h5>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+{% endblock %}
