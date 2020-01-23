@@ -25,7 +25,7 @@ class Company(models.Model):
 
     def __str__(self):
 
-        return f' Nom de l\'entreprise : {self.name}'
+        return f'{self.name}'
 
 
 class Level(models.Model):

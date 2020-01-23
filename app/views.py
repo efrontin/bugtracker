@@ -77,7 +77,18 @@ class ProjectCreateView(generic.FormView):
     template_name = 'project_form.html'
 
     def get_success_url(self):
-        return reverse('project_list')
+        return reverse('index')
+
+    def get_initial(self):
+        user = self.request.user
+        initial = super().get_initial()
+        initial.update({
+            'companies_choices': [
+                (v.pk, str(v))
+                for v in Company.objects.exclude(
+                    employees__in=[user.employee.pk])]
+        })
+        return initial
 
     def form_valid(self, form):
         name = form.cleaned_data['name']
@@ -87,8 +98,16 @@ class ProjectCreateView(generic.FormView):
         project = Project()
         project.save()
         company = Company.objects.get(name=company_str.name)
-        CompanyProject.objects.create(project=project, company=company, is_client=is_client)
-
+        CompanyProject.objects.create(
+            project=project,
+            company=company,
+            is_client=is_client
+        )
+        CompanyProject.objects.create(
+            project=project,
+            company=self.request.user.employee.company,
+            is_client=not is_client
+        )
         project.name = name
         project.save()
 
